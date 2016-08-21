@@ -6,11 +6,16 @@ csv.data <- read.csv("/home/domino/TSA/FreeMem/data/mem_data.dat",
 #write.csv(csv.data)
 
 #Graph plot
-y <- csv.data$V1
-x <- csv.data$V2
+y1 <- csv.data$V1
+y2 <- csv.data$V2
+x <- csv.data$V3
 ylabel <- "Free Memory"
 xlabel <- "Timestamp"
-plot(x, y, xlab=xlabel, ylab=ylabel, pch=1, cex=0.1)
-lines(x, y, type="l")
+
+plot(x, y1, ylim=range(c(y1,y2)), xlab=xlabel, ylab=ylabel, pch=2, cex=0.1,col=17)
+lines(x, y1, type="l",col=17)
+par(new=TRUE)
+plot(x, y2,ylim=range(c(y1,y2)), axes=FALSE,col=10,pch=2, xlab="", ylab="", cex=0.1)
+
 
 
